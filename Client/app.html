@@ -1,101 +1,139 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Crop Yield Prediction</title>
-    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="app.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="app.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="img"></div>
 
     <div class="container">
-        <h1 class="title">Crop Yield Prediction</h1>
+      <h1 class="title">Crop Yield Prediction</h1>
 
-        <form class="form">
-            <!-- Fertilizer & Irrigation -->
-            <div class="row">
-                <div class="col">
-                    <h2>Fertilizer Used</h2>
-                    <div class="switch-field">
-                        <input type="radio" id="fert-low" name="uiFertilizer" value="1" checked>
-                        <label for="fert-low">Yes</label>
-                        
-                        <input type="radio" id="fert-high" name="uiFertilizer" value="0">
-                        <label for="fert-high">No</label>
-                    </div>
-                </div>
-                <div class="col">
-                    <h2>Irrigation Used</h2>
-                    <div class="switch-field">
-                        <input type="radio" id="irrig-yes" name="uiIrrigation" value="1" checked>
-                        <label for="irrig-yes">Yes</label>
-                        <input type="radio" id="irrig-no" name="uiIrrigation" value="0">
-                        <label for="irrig-no">No</label>
-                    </div>
-                </div>
+      <form class="form">
+        <!-- Fertilizer & Irrigation -->
+        <div class="row">
+          <div class="col">
+            <h2>Fertilizer Used</h2>
+            <div class="switch-field">
+              <input
+                type="radio"
+                id="fert-low"
+                name="uiFertilizer"
+                value="1"
+                checked
+              />
+              <label for="fert-low">Yes</label>
+
+              <input
+                type="radio"
+                id="fert-high"
+                name="uiFertilizer"
+                value="0"
+              />
+              <label for="fert-high">No</label>
             </div>
-
-            <!-- Crop & Region -->
-            <div class="row">
-                <div class="col">
-                    <h2>Crop</h2>
-                    <select id="uiCrop" class="location">
-                        <option value="" disabled selected>Select Crop</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <h2>Region</h2>
-                    <select id="uiRegion" class="location">
-                        <option value="" disabled selected>Select Region</option>
-                    </select>
-                </div>
+          </div>
+          <div class="col">
+            <h2>Irrigation Used</h2>
+            <div class="switch-field">
+              <input
+                type="radio"
+                id="irrig-yes"
+                name="uiIrrigation"
+                value="1"
+                checked
+              />
+              <label for="irrig-yes">Yes</label>
+              <input type="radio" id="irrig-no" name="uiIrrigation" value="0" />
+              <label for="irrig-no">No</label>
             </div>
+          </div>
+        </div>
 
-            <!-- Soil & Weather -->
-            <div class="row">
-                <div class="col">
-                    <h2>Soil Type</h2>
-                    <select id="uiSoil" class="location">
-                        <option value="Soil_Type_Chalky">Chalky</option>
-                        <option value="Soil_Type_Clay">Clay</option>
-                        <option value="Soil_Type_Loam">Loam</option>
-                        <option value="Soil_Type_Peaty">Peaty</option>
-                        <option value="Soil_Type_Sandy">Sandy</option>
-                        <option value="Soil_Type_Silt">Silt</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <h2>Weather</h2>
-                    <select id="uiWeather" class="location">
-                        <option value="" disabled selected>Select Weather</option>
-                        <option value="Weather_Condition_Sunny">Sunny</option>
-                        <option value="Weather_Condition_Rainy">Rainy</option>
-                        <option value="Weather_Condition_Cloudy">Cloudy</option>
-                        <option value="Weather_Condition_Stormy">Stormy</option>
-                    </select>
-                </div>
-            </div>
+        <!-- Crop & Region -->
+        <div class="row">
+          <div class="col">
+            <h2>Crop</h2>
+            <select id="uiCrop" class="location">
+              <option value="" disabled selected>Select Crop</option>
+            </select>
+          </div>
+          <div class="col">
+            <h2>Region</h2>
+            <select id="uiRegion" class="location">
+              <option value="" disabled selected>Select Region</option>
+            </select>
+          </div>
+        </div>
 
-            <!-- Rainfall, Temperature, Harvest Days -->
-            <div class="row">
-                <div class="col">
-                    <h2>Rainfall (mm)</h2>
-                    <input type="text" id="uiRainfall" class="area" value="100">
-                </div>
-                <div class="col">
-                    <h2>Temperature (°C)</h2>
-                    <input type="text" id="uiTemperature" class="area" value="28">
-                </div>
-                <div class="col">
-                    <h2>Days to Harvest</h2>
-                    <input type="text" id="uiHarvestDays" class="area" value="90">
-                </div>
-            </div>
+        <!-- Soil & Weather -->
+        <div class="row">
+          <div class="col">
+            <h2>Soil Type</h2>
+            <select id="uiSoil" class="location">
+              <option value="Soil_Type_Chalky">Chalky</option>
+              <option value="Soil_Type_Clay">Clay</option>
+              <option value="Soil_Type_Loam">Loam</option>
+              <option value="Soil_Type_Peaty">Peaty</option>
+              <option value="Soil_Type_Sandy">Sandy</option>
+              <option value="Soil_Type_Silt">Silt</option>
+            </select>
+          </div>
+          <div class="col">
+            <h2>Weather</h2>
+            <select id="uiWeather" class="location">
+              <option value="" disabled selected>Select Weather</option>
+              <option value="Weather_Condition_Sunny">Sunny</option>
+              <option value="Weather_Condition_Rainy">Rainy</option>
+              <option value="Weather_Condition_Cloudy">Cloudy</option>
+              <option value="Weather_Condition_Stormy">Stormy</option>
+            </select>
+          </div>
+        </div>
 
-            <button type="button" class="submit" onclick="onClickedEstimateYield()">Estimate Yield</button>
-            <div id="uiEstimatedYield" class="result"><h2></h2></div>
-        </form>
+        <!-- Rainfall, Temperature, Harvest Days -->
+        <div class="row">
+          <div class="col">
+            <h2>Rainfall (mm)</h2>
+            <input type="text" id="uiRainfall" class="area" value="100" />
+          </div>
+          <div class="col">
+            <h2>Temperature (°C)</h2>
+            <input type="text" id="uiTemperature" class="area" value="28" />
+          </div>
+          <div class="col">
+            <h2>Days to Harvest</h2>
+            <input type="text" id="uiHarvestDays" class="area" value="90" />
+          </div>
+        </div>
+
+        <button type="button" class="submit" onclick="onClickedEstimateYield()">
+          Estimate Yield
+        </button>
+        <div id="uiEstimatedYield" class="result"><h2></h2></div>
+        <div style="display: flex">
+          <div
+            id="yieldChartContainer"
+            class="chart-container"
+            style="width: 70%; margin-top: 20px; display: none; height: 300px"
+          >
+            <canvas id="yieldChart"></canvas>
+          </div>
+
+          <div
+            id="yieldChartRainfallContainer"
+            class="chart-container"
+            style="width: 70%; margin-top: 20px; display: none; height: 300px"
+          >
+            <canvas id="yieldChartRainfall"></canvas>
+          </div>
+        </div>
+      </form>
     </div>
-</body>
+  </body>
 </html>
