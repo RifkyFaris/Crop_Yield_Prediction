@@ -25,7 +25,7 @@
                 id="fert-low"
                 name="uiFertilizer"
                 value="1"
-                checked
+                
               />
               <label for="fert-low">Yes</label>
 
@@ -46,7 +46,7 @@
                 id="irrig-yes"
                 name="uiIrrigation"
                 value="1"
-                checked
+                
               />
               <label for="irrig-yes">Yes</label>
               <input type="radio" id="irrig-no" name="uiIrrigation" value="0" />
@@ -76,6 +76,7 @@
           <div class="col">
             <h2>Soil Type</h2>
             <select id="uiSoil" class="location">
+              <option value="" disabled selected>Select Soil Type</option>
               <option value="Soil_Type_Chalky">Chalky</option>
               <option value="Soil_Type_Clay">Clay</option>
               <option value="Soil_Type_Loam">Loam</option>
@@ -100,15 +101,15 @@
         <div class="row">
           <div class="col">
             <h2>Rainfall (mm)</h2>
-            <input type="text" id="uiRainfall" class="area" value="100" />
+            <input type="text" id="uiRainfall" class="area"  />
           </div>
           <div class="col">
             <h2>Temperature (°C)</h2>
-            <input type="text" id="uiTemperature" class="area" value="28" />
+            <input type="text" id="uiTemperature" class="area"  />
           </div>
           <div class="col">
             <h2>Days to Harvest</h2>
-            <input type="text" id="uiHarvestDays" class="area" value="90" />
+            <input type="text" id="uiHarvestDays" class="area"  />
           </div>
         </div>
 

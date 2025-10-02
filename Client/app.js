@@ -26,7 +26,7 @@ function renderFertilizerGraph(labels, data, crop) {
         {
           label: `Estimated Yield for ${crop} (tons/hectare)`,
           data: data,
-          backgroundColor: "rgba(165, 220, 134, 0.7)",
+          backgroundColor: "rgba(84, 162, 39, 0.7)",
           borderColor: "rgba(138, 199, 111, 1)",
           borderWidth: 1,
         },
