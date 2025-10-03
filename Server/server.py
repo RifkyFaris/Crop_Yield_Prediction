@@ -1,7 +1,7 @@
 import os
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import util
+from . import util
 
 # Get absolute path to the Client folder
 CLIENT_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), '../Client'))
